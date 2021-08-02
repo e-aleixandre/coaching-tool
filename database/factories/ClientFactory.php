@@ -21,8 +21,24 @@ class ClientFactory extends Factory
      */
     public function definition()
     {
-        return [
-            //
+        // Decides whether the client is created or pending
+        $isCreated = $this->faker->boolean();
+
+        // Email is mandatory even for pending clients
+        $user = [
+            'email' => $this->faker->unique()->safeEmail()
         ];
+
+        // If it is created we fill the remaining fields
+        if ($isCreated)
+            $user = array_merge($user, [
+                'name' => $this->faker->name(),
+                'lastname' => $this->faker->lastName(),
+                'phone' => $this->faker->optional()->phoneNumber(),
+                'birthdate' => $this->faker->date(),
+                'isCreated' => true
+            ]);
+
+        return $user;
     }
 }
