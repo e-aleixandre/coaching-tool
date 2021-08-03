@@ -16,6 +16,7 @@ class CreateClientTokensTable extends Migration
         Schema::create('client_tokens', function (Blueprint $table) {
             $table->id();
             $table->string('token');
+            $table->foreignId('client_id')->constrained('clients')->onDelete('cascade');
             $table->timestamps();
         });
     }

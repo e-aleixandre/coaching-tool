@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\Client\ClientTokenController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -30,5 +30,7 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/token/{token}', [ClientTokenController::class, 'index']);
 
 require __DIR__.'/auth.php';
