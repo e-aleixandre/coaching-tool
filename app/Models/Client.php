@@ -10,6 +10,8 @@ class Client extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['first_name', 'last_name', 'phone', 'birthdate'];
+
     /**
      * Emailed token to allow profile completion by user
      */
@@ -22,10 +24,14 @@ class Client extends Model
     {
         /**
          * FUNCTIONALITY
-         * The function should check if the client is already created or already has a token, if not it should
-         * create a token, set its client_id, store it to the db, update isCreated and send an email notification to the Client
+         * The function should check if the client is already created,
+         * if not it should create a token, set its client_id (auto), store it to the db, update isCreated
+         * and send an email notification to the Client.
+         *
+         * NOTE: We dont need to check if the token already exists. firstOrCreate will not create a second one,
+         * and this can be used in case someone doesnt get the email and we need to resend it
          */
-        if ($this->isCreated || $this->token()->first())
+        if ($this->isCreated)
             return "Mal, error";
 
         $token = $this->token()->firstOrCreate();

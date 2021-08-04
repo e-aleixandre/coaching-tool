@@ -9,7 +9,7 @@
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
                                 <inertia-link :href="route('dashboard')">
-                                    <breeze-application-logo class="block h-9 w-auto" />
+                                    <breeze-application-logo class="w-40 h-10" />
                                 </inertia-link>
                             </div>
 

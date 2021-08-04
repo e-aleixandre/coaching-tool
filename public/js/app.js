@@ -18266,7 +18266,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    BreezeApplicationLogo: _Components_ApplicationLogo__WEBPACK_IMPORTED_MODULE_0__.default
+    ApplicationLogo: _Components_ApplicationLogo__WEBPACK_IMPORTED_MODULE_0__.default
   }
 });
 
@@ -18586,6 +18586,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Client/CompleteProfile.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Client/CompleteProfile.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_Guest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Guest */ "./resources/js/Layouts/Guest.vue");
+/* harmony import */ var _Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/ValidationErrors */ "./resources/js/Components/ValidationErrors.vue");
+/* harmony import */ var _Components_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Input */ "./resources/js/Components/Input.vue");
+/* harmony import */ var _Components_Label__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Label */ "./resources/js/Components/Label.vue");
+/* harmony import */ var _Components_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Button */ "./resources/js/Components/Button.vue");
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  layout: _Layouts_Guest__WEBPACK_IMPORTED_MODULE_0__.default,
+  props: {
+    clientToken: String
+  },
+  components: {
+    BreezeInput: _Components_Input__WEBPACK_IMPORTED_MODULE_2__.default,
+    InputLabel: _Components_Label__WEBPACK_IMPORTED_MODULE_3__.default,
+    ValidationErrors: _Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_1__.default,
+    BreezeButton: _Components_Button__WEBPACK_IMPORTED_MODULE_4__.default
+  },
+  name: "CompleteProfile",
+  data: function data() {
+    return {
+      form: this.$inertia.form({
+        first_name: '',
+        last_name: '',
+        phone: '',
+        birthdate: ''
+      })
+    };
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      this.form.post(this.route('client_token.complete_profile', this.clientToken), {
+        onFinish: function onFinish() {
+          return _this.form.reset('password');
+        }
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Dashboard.vue?vue&type=script&lang=js":
 /*!**********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Dashboard.vue?vue&type=script&lang=js ***!
@@ -18643,12 +18701,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  viewBox: "0 0 316 316",
+  viewBox: "0 0 320 80",
+  width: "320",
+  height: "80",
   xmlns: "http://www.w3.org/2000/svg"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
-  d: "M305.8 81.125C305.77 80.995 305.69 80.885 305.65 80.755C305.56 80.525 305.49 80.285 305.37 80.075C305.29 79.935 305.17 79.815 305.07 79.685C304.94 79.515 304.83 79.325 304.68 79.175C304.55 79.045 304.39 78.955 304.25 78.845C304.09 78.715 303.95 78.575 303.77 78.475L251.32 48.275C249.97 47.495 248.31 47.495 246.96 48.275L194.51 78.475C194.33 78.575 194.19 78.725 194.03 78.845C193.89 78.955 193.73 79.045 193.6 79.175C193.45 79.325 193.34 79.515 193.21 79.685C193.11 79.815 192.99 79.935 192.91 80.075C192.79 80.285 192.71 80.525 192.63 80.755C192.58 80.875 192.51 80.995 192.48 81.125C192.38 81.495 192.33 81.875 192.33 82.265V139.625L148.62 164.795V52.575C148.62 52.185 148.57 51.805 148.47 51.435C148.44 51.305 148.36 51.195 148.32 51.065C148.23 50.835 148.16 50.595 148.04 50.385C147.96 50.245 147.84 50.125 147.74 49.995C147.61 49.825 147.5 49.635 147.35 49.485C147.22 49.355 147.06 49.265 146.92 49.155C146.76 49.025 146.62 48.885 146.44 48.785L93.99 18.585C92.64 17.805 90.98 17.805 89.63 18.585L37.18 48.785C37 48.885 36.86 49.035 36.7 49.155C36.56 49.265 36.4 49.355 36.27 49.485C36.12 49.635 36.01 49.825 35.88 49.995C35.78 50.125 35.66 50.245 35.58 50.385C35.46 50.595 35.38 50.835 35.3 51.065C35.25 51.185 35.18 51.305 35.15 51.435C35.05 51.805 35 52.185 35 52.575V232.235C35 233.795 35.84 235.245 37.19 236.025L142.1 296.425C142.33 296.555 142.58 296.635 142.82 296.725C142.93 296.765 143.04 296.835 143.16 296.865C143.53 296.965 143.9 297.015 144.28 297.015C144.66 297.015 145.03 296.965 145.4 296.865C145.5 296.835 145.59 296.775 145.69 296.745C145.95 296.655 146.21 296.565 146.45 296.435L251.36 236.035C252.72 235.255 253.55 233.815 253.55 232.245V174.885L303.81 145.945C305.17 145.165 306 143.725 306 142.155V82.265C305.95 81.875 305.89 81.495 305.8 81.125ZM144.2 227.205L100.57 202.515L146.39 176.135L196.66 147.195L240.33 172.335L208.29 190.625L144.2 227.205ZM244.75 114.995V164.795L226.39 154.225L201.03 139.625V89.825L219.39 100.395L244.75 114.995ZM249.12 57.105L292.81 82.265L249.12 107.425L205.43 82.265L249.12 57.105ZM114.49 184.425L96.13 194.995V85.305L121.49 70.705L139.85 60.135V169.815L114.49 184.425ZM91.76 27.425L135.45 52.585L91.76 77.745L48.07 52.585L91.76 27.425ZM43.67 60.135L62.03 70.705L87.39 85.305V202.545V202.555V202.565C87.39 202.735 87.44 202.895 87.46 203.055C87.49 203.265 87.49 203.485 87.55 203.695V203.705C87.6 203.875 87.69 204.035 87.76 204.195C87.84 204.375 87.89 204.575 87.99 204.745C87.99 204.745 87.99 204.755 88 204.755C88.09 204.905 88.22 205.035 88.33 205.175C88.45 205.335 88.55 205.495 88.69 205.635L88.7 205.645C88.82 205.765 88.98 205.855 89.12 205.965C89.28 206.085 89.42 206.225 89.59 206.325C89.6 206.325 89.6 206.325 89.61 206.335C89.62 206.335 89.62 206.345 89.63 206.345L139.87 234.775V285.065L43.67 229.705V60.135ZM244.75 229.705L148.58 285.075V234.775L219.8 194.115L244.75 179.875V229.705ZM297.2 139.625L253.49 164.795V114.995L278.85 100.395L297.21 89.825V139.625H297.2Z"
+  id: "ruta1",
+  fill: "black",
+  stroke: "black",
+  "stroke-width": "1",
+  d: "M 2.30,62.00\n           C 2.30,62.00 5.05,62.00 5.05,62.00\n             5.05,62.00 5.05,39.14 5.05,39.14\n             5.05,36.20 4.84,32.30 4.69,29.31\n             4.69,29.31 4.89,29.31 4.89,29.31\n             4.89,29.31 7.75,37.28 7.75,37.28\n             7.75,37.28 15.44,58.00 15.44,58.00\n             15.44,58.00 17.84,58.00 17.84,58.00\n             17.84,58.00 25.50,37.28 25.50,37.28\n             25.50,37.28 28.34,29.31 28.34,29.31\n             28.34,29.31 28.55,29.31 28.55,29.31\n             28.39,32.30 28.19,36.20 28.19,39.14\n             28.19,39.14 28.19,62.00 28.19,62.00\n             28.19,62.00 31.05,62.00 31.05,62.00\n             31.05,62.00 31.05,26.00 31.05,26.00\n             31.05,26.00 27.05,26.00 27.05,26.00\n             27.05,26.00 19.55,46.58 19.55,46.58\n             18.64,49.17 17.80,51.81 16.84,54.41\n             16.84,54.41 16.64,54.41 16.64,54.41\n             15.69,51.81 14.75,49.17 13.80,46.58\n             13.80,46.58 6.30,26.00 6.30,26.00\n             6.30,26.00 2.30,26.00 2.30,26.00\n             2.30,26.00 2.30,62.00 2.30,62.00 Z\n           M 46.59,41.08\n           C 48.05,36.88 49.30,33.06 50.55,28.70\n             50.55,28.70 50.75,28.70 50.75,28.70\n             52.05,33.06 53.25,36.88 54.75,41.08\n             54.75,41.08 56.94,47.61 56.94,47.61\n             56.94,47.61 44.34,47.61 44.34,47.61\n             44.34,47.61 46.59,41.08 46.59,41.08 Z\n           M 36.39,62.00\n           C 36.39,62.00 39.39,62.00 39.39,62.00\n             39.39,62.00 43.55,50.00 43.55,50.00\n             43.55,50.00 57.75,50.00 57.75,50.00\n             57.75,50.00 61.80,62.00 61.80,62.00\n             61.80,62.00 65.00,62.00 65.00,62.00\n             65.00,62.00 52.25,26.00 52.25,26.00\n             52.25,26.00 49.14,26.00 49.14,26.00\n             49.14,26.00 36.39,62.00 36.39,62.00 Z\n           M 70.30,62.00\n           C 70.30,62.00 73.30,62.00 73.30,62.00\n             73.30,62.00 73.30,46.00 73.30,46.00\n             73.30,46.00 80.75,46.00 80.75,46.00\n             80.75,46.00 90.44,62.00 90.44,62.00\n             90.44,62.00 93.84,62.00 93.84,62.00\n             93.84,62.00 84.00,45.75 84.00,45.75\n             89.55,44.91 93.09,41.56 93.09,35.75\n             93.09,28.66 88.19,26.00 80.94,26.00\n             80.94,26.00 70.30,26.00 70.30,26.00\n             70.30,26.00 70.30,62.00 70.30,62.00 Z\n           M 73.30,43.50\n           C 73.30,43.50 73.30,28.52 73.30,28.52\n             73.30,28.52 80.25,28.52 80.25,28.52\n             86.55,28.52 90.05,30.45 90.05,35.75\n             90.05,41.00 86.55,43.50 80.25,43.50\n             80.25,43.50 73.30,43.50 73.30,43.50 Z\n           M 100.30,62.00\n           C 100.30,62.00 103.30,62.00 103.30,62.00\n             103.30,62.00 103.30,26.00 103.30,26.00\n             103.30,26.00 100.30,26.00 100.30,26.00\n             100.30,26.00 100.30,62.00 100.30,62.00 Z\n           M 119.59,41.08\n           C 121.05,36.88 122.30,33.06 123.55,28.70\n             123.55,28.70 123.75,28.70 123.75,28.70\n             125.05,33.06 126.25,36.88 127.75,41.08\n             127.75,41.08 129.94,47.61 129.94,47.61\n             129.94,47.61 117.34,47.61 117.34,47.61\n             117.34,47.61 119.59,41.08 119.59,41.08 Z\n           M 109.39,62.00\n           C 109.39,62.00 112.39,62.00 112.39,62.00\n             112.39,62.00 116.55,50.00 116.55,50.00\n             116.55,50.00 130.75,50.00 130.75,50.00\n             130.75,50.00 134.80,62.00 134.80,62.00\n             134.80,62.00 138.00,62.00 138.00,62.00\n             138.00,62.00 125.25,26.00 125.25,26.00\n             125.25,26.00 122.14,26.00 122.14,26.00\n             122.14,26.00 109.39,62.00 109.39,62.00 Z\n           M 154.89,42.00\n           C 156.09,37.95 157.25,33.86 158.30,29.61\n             158.30,29.61 158.55,29.61 158.55,29.61\n             159.64,33.81 160.75,37.95 162.00,42.00\n             162.00,42.00 163.44,47.00 163.44,47.00\n             163.44,47.00 153.39,47.00 153.39,47.00\n             153.39,47.00 154.89,42.00 154.89,42.00 Z\n           M 143.00,62.00\n           C 143.00,62.00 148.89,62.00 148.89,62.00\n             148.89,62.00 152.05,51.56 152.05,51.56\n             152.05,51.56 164.84,51.56 164.84,51.56\n             164.84,51.56 167.94,62.00 167.94,62.00\n             167.94,62.00 174.09,62.00 174.09,62.00\n             174.09,62.00 161.89,25.00 161.89,25.00\n             161.89,25.00 155.19,25.00 155.19,25.00\n             155.19,25.00 143.00,62.00 143.00,62.00 Z\n           M 189.34,63.00\n           C 197.39,63.00 202.30,58.20 202.30,52.14\n             202.30,46.58 199.14,43.80 194.80,41.89\n             194.80,41.89 189.75,39.67 189.75,39.67\n             186.75,38.44 183.80,37.20 183.80,33.91\n             183.80,30.91 186.25,29.06 190.00,29.06\n             193.25,29.06 195.80,30.34 198.09,32.45\n             198.09,32.45 201.14,28.66 201.14,28.66\n             198.34,25.81 194.30,24.00 190.00,24.00\n             183.00,24.00 177.89,28.36 177.89,34.31\n             177.89,39.83 181.84,42.70 185.39,44.25\n             185.39,44.25 190.50,46.52 190.50,46.52\n             193.89,48.06 196.39,49.16 196.39,52.59\n             196.39,55.80 193.89,57.95 189.44,57.95\n             185.89,57.95 182.30,56.20 179.64,53.47\n             179.64,53.47 176.25,57.59 176.25,57.59\n             179.59,61.00 184.30,63.00 189.34,63.00 Z\n           M 208.84,62.00\n           C 208.84,62.00 231.14,62.00 231.14,62.00\n             231.14,62.00 231.14,57.11 231.14,57.11\n             231.14,57.11 214.64,57.11 214.64,57.11\n             214.64,57.11 214.64,45.00 214.64,45.00\n             214.64,45.00 228.14,45.00 228.14,45.00\n             228.14,45.00 228.14,40.11 228.14,40.11\n             228.14,40.11 214.64,40.11 214.64,40.11\n             214.64,40.11 214.64,29.91 214.64,29.91\n             214.64,29.91 230.59,29.91 230.59,29.91\n             230.59,29.91 230.59,25.00 230.59,25.00\n             230.59,25.00 208.84,25.00 208.84,25.00\n             208.84,25.00 208.84,62.00 208.84,62.00 Z\n           M 238.84,62.00\n           C 238.84,62.00 244.34,62.00 244.34,62.00\n             244.34,62.00 244.34,44.59 244.34,44.59\n             244.34,40.55 243.89,36.28 243.59,32.45\n             243.59,32.45 243.84,32.45 243.84,32.45\n             243.84,32.45 247.69,40.20 247.69,40.20\n             247.69,40.20 259.89,62.00 259.89,62.00\n             259.89,62.00 265.84,62.00 265.84,62.00\n             265.84,62.00 265.84,25.00 265.84,25.00\n             265.84,25.00 260.34,25.00 260.34,25.00\n             260.34,25.00 260.34,42.27 260.34,42.27\n             260.34,46.31 260.80,50.78 261.09,54.61\n             261.09,54.61 260.84,54.61 260.84,54.61\n             260.84,54.61 257.00,46.77 257.00,46.77\n             257.00,46.77 244.80,25.00 244.80,25.00\n             244.80,25.00 238.84,25.00 238.84,25.00\n             238.84,25.00 238.84,62.00 238.84,62.00 Z\n           M 286.34,63.00\n           C 294.39,63.00 299.30,58.20 299.30,52.14\n             299.30,46.58 296.14,43.80 291.80,41.89\n             291.80,41.89 286.75,39.67 286.75,39.67\n             283.75,38.44 280.80,37.20 280.80,33.91\n             280.80,30.91 283.25,29.06 287.00,29.06\n             290.25,29.06 292.80,30.34 295.09,32.45\n             295.09,32.45 298.14,28.66 298.14,28.66\n             295.34,25.81 291.30,24.00 287.00,24.00\n             280.00,24.00 274.89,28.36 274.89,34.31\n             274.89,39.83 278.84,42.70 282.39,44.25\n             282.39,44.25 287.50,46.52 287.50,46.52\n             290.89,48.06 293.39,49.16 293.39,52.59\n             293.39,55.80 290.89,57.95 286.44,57.95\n             282.89,57.95 279.30,56.20 276.64,53.47\n             276.64,53.47 273.25,57.59 273.25,57.59\n             276.59,61.00 281.30,63.00 286.34,63.00 Z\n           M 305.84,62.00\n           C 305.84,62.00 311.64,62.00 311.64,62.00\n             311.64,62.00 311.64,25.00 311.64,25.00\n             311.64,25.00 305.84,25.00 305.84,25.00\n             305.84,25.00 305.84,62.00 305.84,62.00 Z"
 }, null, -1
 /* HOISTED */
 );
@@ -18844,7 +18908,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "block font-medium text-sm text-gray-700"
+  "class": "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 };
 var _hoisted_2 = {
   key: 0
@@ -19089,7 +19153,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_application_logo, {
-        "class": "block h-9 w-auto"
+        "class": "w-40 h-10"
       })];
     }),
     _: 1
@@ -19225,7 +19289,7 @@ var _hoisted_2 = {
   "class": "w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_breeze_application_logo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("breeze-application-logo");
+  var _component_application_logo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("application-logo");
 
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
@@ -19233,8 +19297,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: "/"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_application_logo, {
-        "class": "w-20 h-20 fill-current text-gray-500"
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_application_logo, {
+        "class": "w-80 h-20 fill-current text-gray-500"
       })];
     }),
     _: 1
@@ -19526,6 +19590,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8
   /* PROPS */
   , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_button, {
+    type: "submit",
     "class": ["ml-4", {
       'opacity-25': $data.form.processing
     }],
@@ -19875,6 +19940,199 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* STABLE_FRAGMENT */
   );
 }
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Client/CompleteProfile.vue?vue&type=template&id=30cf6296&scoped=true":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Client/CompleteProfile.vue?vue&type=template&id=30cf6296&scoped=true ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-30cf6296");
+
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-30cf6296");
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("small", {
+  "class": "text-gray-600"
+}, "Rellena tus datos para crear tu ficha de cliente", -1
+/* HOISTED */
+);
+
+var _hoisted_2 = {
+  "class": "flex flex-wrap -mx-3 mb-6"
+};
+var _hoisted_3 = {
+  "class": "w-full md:w-1/2 px-3 mb-6 md:mb-0"
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Nombre ");
+
+var _hoisted_5 = {
+  "class": "w-full md:w-1/2 px-3"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Apellidos ");
+
+var _hoisted_7 = {
+  "class": "flex flex-wrap -mx-3 mb-6"
+};
+var _hoisted_8 = {
+  "class": "w-full px-3"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Fecha de nacimiento ");
+
+var _hoisted_10 = {
+  "class": "flex flex-wrap -mx-3 mb-6"
+};
+var _hoisted_11 = {
+  "class": "w-full px-3"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Teléfono ");
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
+  "class": "mt-3 text-gray-600 text-xs italic"
+}, " El teléfono no es obligatorio, pero agilizará la comunicación ", -1
+/* HOISTED */
+);
+
+var _hoisted_14 = {
+  "class": "flex w-full justify-end"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Siguiente ");
+
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
+
+var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_validation_errors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("validation-errors");
+
+  var _component_input_label = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("input-label");
+
+  var _component_breeze_input = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("breeze-input");
+
+  var _component_breeze_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("breeze-button");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_validation_errors, {
+    "class": "mb-4"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", {
+    novalidate: "mt-4 w-full max-w-lg",
+    onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.submit && $options.submit.apply($options, arguments);
+    }, ["prevent"]))
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_label, {
+    "for": "first-name"
+  }, {
+    "default": _withId(function () {
+      return [_hoisted_4];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_input, {
+    id: "first-name",
+    type: "text",
+    "class": "mt-1 block w-full",
+    modelValue: $data.form.first_name,
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.form.first_name = $event;
+    }),
+    required: "",
+    autofocus: "",
+    autocomplete: "given-name"
+  }, null, 8
+  /* PROPS */
+  , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_label, {
+    "for": "last-name"
+  }, {
+    "default": _withId(function () {
+      return [_hoisted_6];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_input, {
+    id: "last-name",
+    type: "text",
+    "class": "mt-1 block w-full",
+    modelValue: $data.form.last_name,
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.form.last_name = $event;
+    }),
+    required: "",
+    autocomplete: "family-name"
+  }, null, 8
+  /* PROPS */
+  , ["modelValue"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_label, {
+    "for": "birthdate"
+  }, {
+    "default": _withId(function () {
+      return [_hoisted_9];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_input, {
+    id: "birthdate",
+    type: "date",
+    "class": "mt-1 block w-full",
+    modelValue: $data.form.birthdate,
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.form.birthdate = $event;
+    }),
+    required: "",
+    autocomplete: "bday"
+  }, null, 8
+  /* PROPS */
+  , ["modelValue"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_label, {
+    "for": "phone"
+  }, {
+    "default": _withId(function () {
+      return [_hoisted_12];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_input, {
+    id: "phone",
+    type: "tel",
+    "class": "mt-1 block w-full",
+    modelValue: $data.form.phone,
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.form.phone = $event;
+    }),
+    autocomplete: "tel"
+  }, null, 8
+  /* PROPS */
+  , ["modelValue"]), _hoisted_13])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_button, {
+    type: "submit",
+    "class": ["right-0", {
+      'opacity-25': $data.form.processing
+    }],
+    disabled: $data.form.processing
+  }, {
+    "default": _withId(function () {
+      return [_hoisted_15];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["class", "disabled"])])], 32
+  /* HYDRATE_EVENTS */
+  )]);
+});
 
 /***/ }),
 
@@ -44921,6 +45179,33 @@ _VerifyEmail_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Client/CompleteProfile.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/Pages/Client/CompleteProfile.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CompleteProfile_vue_vue_type_template_id_30cf6296_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CompleteProfile.vue?vue&type=template&id=30cf6296&scoped=true */ "./resources/js/Pages/Client/CompleteProfile.vue?vue&type=template&id=30cf6296&scoped=true");
+/* harmony import */ var _CompleteProfile_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CompleteProfile.vue?vue&type=script&lang=js */ "./resources/js/Pages/Client/CompleteProfile.vue?vue&type=script&lang=js");
+
+
+
+_CompleteProfile_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _CompleteProfile_vue_vue_type_template_id_30cf6296_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render
+_CompleteProfile_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__scopeId = "data-v-30cf6296"
+/* hot reload */
+if (false) {}
+
+_CompleteProfile_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/Pages/Client/CompleteProfile.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_CompleteProfile_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Dashboard.vue":
 /*!******************************************!*\
   !*** ./resources/js/Pages/Dashboard.vue ***!
@@ -45229,6 +45514,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_VerifyEmail_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_VerifyEmail_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./VerifyEmail.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Auth/VerifyEmail.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Client/CompleteProfile.vue?vue&type=script&lang=js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Pages/Client/CompleteProfile.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CompleteProfile_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CompleteProfile_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CompleteProfile.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Client/CompleteProfile.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -45553,6 +45854,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Client/CompleteProfile.vue?vue&type=template&id=30cf6296&scoped=true":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/Pages/Client/CompleteProfile.vue?vue&type=template&id=30cf6296&scoped=true ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CompleteProfile_vue_vue_type_template_id_30cf6296_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CompleteProfile_vue_vue_type_template_id_30cf6296_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CompleteProfile.vue?vue&type=template&id=30cf6296&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Client/CompleteProfile.vue?vue&type=template&id=30cf6296&scoped=true");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Dashboard.vue?vue&type=template&id=097ba13b":
 /*!************************************************************************!*\
   !*** ./resources/js/Pages/Dashboard.vue?vue&type=template&id=097ba13b ***!
@@ -45826,6 +46143,8 @@ var map = {
 	"./Auth/ResetPassword.vue": "./resources/js/Pages/Auth/ResetPassword.vue",
 	"./Auth/VerifyEmail": "./resources/js/Pages/Auth/VerifyEmail.vue",
 	"./Auth/VerifyEmail.vue": "./resources/js/Pages/Auth/VerifyEmail.vue",
+	"./Client/CompleteProfile": "./resources/js/Pages/Client/CompleteProfile.vue",
+	"./Client/CompleteProfile.vue": "./resources/js/Pages/Client/CompleteProfile.vue",
 	"./Dashboard": "./resources/js/Pages/Dashboard.vue",
 	"./Dashboard.vue": "./resources/js/Pages/Dashboard.vue",
 	"./Welcome": "./resources/js/Pages/Welcome.vue",

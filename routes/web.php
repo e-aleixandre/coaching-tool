@@ -16,21 +16,16 @@ use Inertia\Inertia;
 */
 
 /**
- * Commenting welcome page
+ * Panel routes
  */
-/*Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});*/
-
 Route::get('/', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/token/{token}', [ClientTokenController::class, 'index']);
+/**
+ * Client routes
+ */
+Route::get('/tokens/{clientToken}', [ClientTokenController::class, 'index'])->name('client_token.complete_profile');
+Route::post('/tokens/{clientToken:token}', [ClientTokenController::class, 'completeProfile'])->name('client_token.complete_profile');
 
 require __DIR__.'/auth.php';

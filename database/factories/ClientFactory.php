@@ -32,8 +32,8 @@ class ClientFactory extends Factory
         // If it is created we fill the remaining fields
         if ($isCreated)
             $user = array_merge($user, [
-                'name' => $this->faker->name(),
-                'lastname' => $this->faker->lastName(),
+                'first_name' => $this->faker->name(),
+                'last_name' => $this->faker->lastName(),
                 'phone' => $this->faker->optional()->phoneNumber(),
                 'birthdate' => $this->faker->date(),
                 'isCreated' => true

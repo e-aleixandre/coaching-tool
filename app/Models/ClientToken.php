@@ -12,6 +12,7 @@ class ClientToken extends Model
 
     protected static function booted()
     {
+        // Assign a random 64 character string to ClientToken on creation
         static::creating(function ($token) {
            $token->token = Str::random(64);
         });
@@ -19,7 +20,7 @@ class ClientToken extends Model
     /**
      * Client that owns this token
      */
-    public function user()
+    public function client()
     {
         return $this->belongsTo(Client::class);
     }

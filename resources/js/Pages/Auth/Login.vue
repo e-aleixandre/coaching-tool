@@ -28,7 +28,7 @@
                 ¿Has olvidado tu contraseña?
             </inertia-link>
 
-            <breeze-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <breeze-button type="submit" class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                 Iniciar sesión
             </breeze-button>
         </div>
