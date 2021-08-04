@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Models\Client;
 use App\Models\ClientToken;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 
 class ClientTokenController extends Controller
@@ -12,7 +15,7 @@ class ClientTokenController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Inertia\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Inertia\Response
      */
     public function index(String $clientToken)
     {
@@ -31,6 +34,61 @@ class ClientTokenController extends Controller
         else
             // The token doesn't exist, redirect to root
             return redirect('/');
+    }
+
+    /**
+     * TEMP!!
+     * Renders the page for creating a token for a user
+     *
+     * @return \Inertia\Response
+     */
+    public function new()
+    {
+        return Inertia::render('Client/GenerateToken');
+    }
+
+    /**
+     * Creates a token for a client and notifies by email.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function create(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+                'email' => ['required', 'email', 'exists:clients']
+            ],
+            [
+                'exists' => 'No existe un cliente con ese email.'
+            ]);
+
+        // If there's no client with that email, or the email is wrong or not filled
+        if ($validator->fails())
+        {
+            return Redirect::back()->withErrors($validator);
+        }
+
+        // If there's a client we still need to make sure it's not created yet
+        $client = Client::where('email',$request->input('email'))->first();
+
+        if ($client->isCreated)
+        {
+            $validator->getMessageBag()->add('email', 'El usuario ya tiene una ficha creada.');
+            return Redirect::back()->withErrors($validator);
+        }
+
+        // If we get here then we can create the token and show it
+        dd($client);
+        /*
+        $client = Client::where('email', $validator->["email"])->first();
+
+        if ($client->isCreated)
+            return Redirect::back()->withErrors([
+
+            ]);
+
+        $client->token()->firstOrCreate();
+
+        dd($client);*/
     }
 
     /**
@@ -53,6 +111,8 @@ class ClientTokenController extends Controller
         $client->update($validated);
         $clientToken->delete();
 
-        dd($client);
+        // TODO: Email the admin to notify a client has filled its profile
+
+        return Inertia::render('Client/ProfileCompleted');
     }
 }

@@ -1,24 +1,26 @@
 <template>
     <div>
         <small class="text-gray-600">Rellena tus datos para crear tu ficha de cliente</small>
-
-        <validation-errors class="mb-4"/>
-        <form novalidate ="mt-4 w-full max-w-lg" @submit.prevent="submit">
+        <!-- TODO: Decide between displaying form errors together or below each field -->
+        <!--<validation-errors class="mb-4"/>-->
+        <form novalidate class="mt-4 w-full max-w-lg" @submit.prevent="submit">
 
             <div class="flex flex-wrap -mx-3 mb-6">
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <input-label for="first-name">
                         Nombre
                     </input-label>
-                    <breeze-input id="first-name" type="text" class="mt-1 block w-full" v-model="form.first_name"
+                    <breeze-input id="first-name" type="text" :class="{ 'border-red-500': errors.first_name }" class="mt-1 block w-full" v-model="form.first_name"
                                   required autofocus autocomplete="given-name"/>
+                    <input-error class="mt-1" :message="errors.first_name"></input-error>
                 </div>
                 <div class="w-full md:w-1/2 px-3">
                     <input-label for="last-name">
                         Apellidos
                     </input-label>
-                    <breeze-input id="last-name" type="text" class="mt-1 block w-full" v-model="form.last_name" required
+                    <breeze-input id="last-name" type="text" :class="{ 'border-red-500': errors.last_name }" class="mt-1 block w-full" v-model="form.last_name" required
                                   autocomplete="family-name"/>
+                    <input-error class="mt-1" :message="errors.last_name"></input-error>
                 </div>
             </div>
             <div class="flex flex-wrap -mx-3 mb-6">
@@ -26,8 +28,9 @@
                     <input-label for="birthdate">
                         Fecha de nacimiento
                     </input-label>
-                    <breeze-input id="birthdate" type="date" class="mt-1 block w-full" v-model="form.birthdate" required
+                    <breeze-input id="birthdate" type="date" :class="{ 'border-red-500': errors.birthdate }" class="mt-1 block w-full" v-model="form.birthdate" required
                                   autocomplete="bday"></breeze-input>
+                    <input-error class="mt-1" :message="errors.birthdate"></input-error>
                 </div>
             </div>
             <div class="flex flex-wrap -mx-3 mb-6">
@@ -53,22 +56,23 @@
 
 <script>
 import GuestLayout from "@/Layouts/Guest";
-import ValidationErrors from "@/Components/ValidationErrors";
 import BreezeInput from "@/Components/Input";
 import InputLabel from "@/Components/Label";
 import BreezeButton from "@/Components/Button";
+import InputError from "@/Components/InputError";
 
 export default {
     layout: GuestLayout,
 
     props: {
-        clientToken: String
+        clientToken: String,
+        errors: Object
     },
 
     components: {
+        InputError,
         BreezeInput,
         InputLabel,
-        ValidationErrors,
         BreezeButton
     },
 

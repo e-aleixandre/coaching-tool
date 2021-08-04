@@ -1,5 +1,5 @@
 <template>
-    <breeze-authenticated-layout>
+    <authenticated-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Mi Panel
@@ -15,15 +15,15 @@
                 </div>
             </div>
         </div>
-    </breeze-authenticated-layout>
+    </authenticated-layout>
 </template>
 
 <script>
-    import BreezeAuthenticatedLayout from '@/Layouts/Authenticated'
+    import AuthenticatedLayout from '@/Layouts/Authenticated'
 
     export default {
         components: {
-            BreezeAuthenticatedLayout,
+            AuthenticatedLayout,
         },
     }
 </script>

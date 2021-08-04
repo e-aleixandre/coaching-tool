@@ -25,6 +25,8 @@ Route::get('/', function () {
 /**
  * Client routes
  */
+Route::get('/tokens/generate-token', [ClientTokenController::class, 'new'])->middleware('auth');
+Route::post('/tokens/generate-token', [ClientTokenController::class, 'create'])->middleware('auth')->name('client_token.generate');
 Route::get('/tokens/{clientToken}', [ClientTokenController::class, 'index'])->name('client_token.complete_profile');
 Route::post('/tokens/{clientToken:token}', [ClientTokenController::class, 'completeProfile'])->name('client_token.complete_profile');
 
