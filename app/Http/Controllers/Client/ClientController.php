@@ -65,7 +65,9 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return $client;
+        return Inertia::render('Client/ShowClient', [
+            'client' => $client
+        ]);
     }
 
     /**
@@ -76,7 +78,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return Inertia::render('Client/CreateClient', [
+        return Inertia::render('Client/EditClient', [
             'client' => $client
         ]);
     }
@@ -86,11 +88,32 @@ class ClientController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $validated = $request->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'birthdate' => ['required', 'date'],
+            'phone' => []
+        ]);
+
+        // Using fill, so it doesn't automatically update it on the DB
+        $client->fill($validated);
+
+        // Update isCreated manually (not fillable)
+        $client->isCreated = true;
+
+        // Update the database entry
+        $client->save();
+
+        return Inertia::render('Client/ShowClient', [
+            'client' => $client
+        ])->with([
+            'type' => 'success',
+            'message' => 'Cliente actualizado correctamente.'
+        ]);
     }
 
     /**

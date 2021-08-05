@@ -76,9 +76,20 @@
                         <breeze-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                             Mi Panel
                         </breeze-responsive-nav-link>
-                        <breeze-responsive-nav-link :href="route('dashboard')" :active="$page.component.startsWith('Client')">
-                            Clientes
-                        </breeze-responsive-nav-link>
+                        <responsive-nav-dropdown :active="$page.component.startsWith('Client')">
+                            <template v-slot:category>
+                                Clientes
+                            </template>
+                            <template v-slot:links>
+                                <breeze-responsive-nav-link :href="route('clients.index')" :active="route().current('clients.index')">
+                                    Ver clientes
+                                </breeze-responsive-nav-link>
+                                <breeze-responsive-nav-link :href="route('clients.create')" :active="route().current('clients.create')">
+                                    Nuevo cliente
+                                </breeze-responsive-nav-link>
+                            </template>
+                        </responsive-nav-dropdown>
+
                     </div>
 
                     <!-- Responsive Settings Options -->
@@ -120,10 +131,12 @@
     import BreezeResponsiveNavLink from '@/Components/Nav/ResponsiveNavLink'
     import ToastNotification from "@/Components/Notification/ToastNotification";
     import NavDropdown from "@/Components/Nav/NavDropdown";
-    import ExpandIcon from "@/Components/UI/ExpandIcon";
+    import ExpandIcon from "@/Components/Icon/ExpandIcon";
+    import ResponsiveNavDropdown from "@/Components/Nav/ResponsiveNavDropdown";
 
     export default {
         components: {
+            ResponsiveNavDropdown,
             ExpandIcon,
             NavDropdown,
             BreezeApplicationLogo,

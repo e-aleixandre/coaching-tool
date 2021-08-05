@@ -12,7 +12,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="mb-6 bg-blue-100 border-l-4 border-blue-500 text-white-700 p-4" role="alert">
                         <p class="font-bold">Información</p>
-                        <p class="text-sm">Desde esta página puedes generar un email para el que el cliente rellene su ficha.</p>
+                        <p class="text-sm">Desde esta página puedes generar un email para que el cliente rellene su ficha.</p>
                     </div>
 
                     <form class="w-full md:w-5/12" @submit.prevent="submit">

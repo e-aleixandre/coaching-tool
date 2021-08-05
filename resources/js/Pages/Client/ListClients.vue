@@ -60,7 +60,8 @@
                                             </div>
                                             <!-- Action: delete -->
                                             <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <inertia-link as="button" method="delete" :href="route('clients.destroy', client.id)">
+                                                <inertia-link as="button" method="delete"
+                                                              :href="route('clients.destroy', client.id)">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                          viewBox="0 0 24 24"
                                                          stroke="currentColor">
@@ -101,9 +102,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-tbody > tr:nth-child(even) {
-
-}
-</style>

@@ -33,7 +33,7 @@
 
 <script>
 import {onMounted, onUnmounted, ref} from "vue";
-import ExpandIcon from "@/Components/UI/ExpandIcon";
+import ExpandIcon from "@/Components/Icon/ExpandIcon";
 
 export default {
     components: {ExpandIcon},
