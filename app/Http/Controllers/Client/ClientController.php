@@ -13,11 +13,15 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
-        //
+        $clients = Client::all();
+
+        return Inertia::render('Client/ListClients', [
+            'clients' => $clients
+        ]);
     }
 
     /**
@@ -57,22 +61,24 @@ class ClientController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function show(Client $client)
     {
-        //
+        return $client;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function edit(Client $client)
     {
-        //
+        return Inertia::render('Client/CreateClient', [
+            'client' => $client
+        ]);
     }
 
     /**
@@ -95,6 +101,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        // TODO: Implement softDelete?
+        return "Deleted client " . $client->email;
     }
 }

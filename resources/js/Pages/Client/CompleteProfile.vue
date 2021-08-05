@@ -91,7 +91,7 @@ export default {
 
     methods: {
         submit() {
-            this.form.post(this.route('client_token.complete_profile', this.clientToken), {
+            this.form.post(this.route('client_tokens.complete_profile', this.clientToken), {
                 onFinish: () => this.form.reset('password'),
             })
         }

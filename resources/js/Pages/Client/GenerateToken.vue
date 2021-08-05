@@ -67,7 +67,7 @@ export default {
 
     methods: {
         submit() {
-            this.form.post(this.route('client_token.generate'))
+            this.form.post(this.route('client_tokens.generate'))
         }
     }
 }
