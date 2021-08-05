@@ -1,8 +1,11 @@
 <template>
     <div class="relative">
-        <div @click="open = ! open">
-            <slot name="trigger" />
-        </div>
+        <button id="trigger"
+                class="h-full items-center inline-flex px-1 pt-1 border-b-2  text-sm font-medium leading-5  transition duration-150 ease-in-out focus:outline-none"
+                :class="classes" @click="open = ! open">
+            <slot name="trigger"/>
+            <expand-icon/>
+        </button>
 
         <!-- Full Screen Dropdown Overlay -->
         <div v-show="open" class="fixed inset-0 z-40" @click="open = false">
@@ -16,12 +19,12 @@
             leave-from-class="transform opacity-100 scale-100"
             leave-to-class="transform opacity-0 scale-95">
             <div v-show="open"
-                    class="absolute z-50 mt-2 rounded-md shadow-lg"
-                    :class="[widthClass, alignmentClasses]"
-                    style="display: none;"
-                    @click="open = false">
+                 class="absolute z-50 mt-2 rounded-md shadow-lg"
+                 :class="[widthClass, alignmentClasses]"
+                 style="display: none;"
+                 @click="open = false">
                 <div class="rounded-md ring-1 ring-black ring-opacity-5" :class="contentClasses">
-                    <slot name="content" />
+                    <slot name="content"/>
                 </div>
             </div>
         </transition>
@@ -29,9 +32,11 @@
 </template>
 
 <script>
-import { onMounted, onUnmounted, ref } from "vue";
+import {onMounted, onUnmounted, ref} from "vue";
+import ExpandIcon from "@/Components/UI/ExpandIcon";
 
 export default {
+    components: {ExpandIcon},
     props: {
         align: {
             default: 'right'
@@ -41,7 +46,8 @@ export default {
         },
         contentClasses: {
             default: () => ['py-1', 'bg-white']
-        }
+        },
+        active: Boolean
     },
 
     setup() {
@@ -77,6 +83,12 @@ export default {
                 return 'origin-top'
             }
         },
+
+        classes() {
+            return this.active
+                ? 'border-indigo-400 text-gray-900 focus:border-indigo-700'
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300'
+        }
     }
 }
 </script>

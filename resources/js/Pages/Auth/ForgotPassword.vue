@@ -7,12 +7,11 @@
         {{ status }}
     </div>
 
-    <breeze-validation-errors class="mb-4" />
-
     <form @submit.prevent="submit">
         <div>
             <breeze-label for="email" value="Email" />
             <breeze-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
+            <input-error class="mt-1" :message="errors.email"/>
         </div>
 
         <div class="flex items-center justify-end mt-4">
@@ -24,16 +23,18 @@
 </template>
 
 <script>
-    import BreezeButton from '@/Components/Button'
+    import BreezeButton from '@/Components/UI/Button'
     import BreezeGuestLayout from "@/Layouts/Guest"
-    import BreezeInput from '@/Components/Input'
-    import BreezeLabel from '@/Components/Label'
-    import BreezeValidationErrors from '@/Components/ValidationErrors'
+    import BreezeInput from '@/Components/Form/Input'
+    import BreezeLabel from '@/Components/Form/Label'
+    import BreezeValidationErrors from '@/Components/Form/ValidationErrors'
+    import InputError from "@/Components/Form/InputError";
 
     export default {
         layout: BreezeGuestLayout,
 
         components: {
+            InputError,
             BreezeButton,
             BreezeInput,
             BreezeLabel,
@@ -42,6 +43,7 @@
 
         props: {
             status: String,
+            errors: Object
         },
 
         data() {

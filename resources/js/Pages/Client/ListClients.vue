@@ -86,7 +86,7 @@
 <script>
 
 import AuthenticatedLayout from "@/Layouts/Authenticated";
-import DashboardNotification from "@/Components/DashboardNotification";
+import DashboardNotification from "@/Components/Notification/DashboardNotification";
 
 export default {
     name: "ListClients",

@@ -56,10 +56,10 @@
 
 <script>
 import GuestLayout from "@/Layouts/Guest";
-import BreezeInput from "@/Components/Input";
-import InputLabel from "@/Components/Label";
-import BreezeButton from "@/Components/Button";
-import InputError from "@/Components/InputError";
+import BreezeInput from "@/Components/Form/Input";
+import InputLabel from "@/Components/Form/Label";
+import BreezeButton from "@/Components/UI/Button";
+import InputError from "@/Components/Form/InputError";
 
 export default {
     layout: GuestLayout,

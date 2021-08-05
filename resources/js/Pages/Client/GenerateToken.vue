@@ -36,10 +36,10 @@
 
 <script>
 import AuthenticatedLayout from "@/Layouts/Authenticated";
-import FormButton from "@/Components/Button";
-import InputError from "@/Components/InputError";
-import InputField from "@/Components/Input";
-import InputLabel from "@/Components/Label";
+import FormButton from "@/Components/UI/Button";
+import InputError from "@/Components/Form/InputError";
+import InputField from "@/Components/Form/Input";
+import InputLabel from "@/Components/Form/Label";
 
 export default {
     name: "CreateTokenForm",

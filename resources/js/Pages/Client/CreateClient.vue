@@ -55,12 +55,12 @@
 
 <script>
 import AuthenticatedLayout from "@/Layouts/Authenticated";
-import FormButton from "@/Components/Button";
-import InputError from "@/Components/InputError";
-import InputField from "@/Components/Input";
-import InputLabel from "@/Components/Label";
-import DashboardNotification from "@/Components/DashboardNotification";
-import ButtonLink from "@/Components/ButtonLink";
+import FormButton from "@/Components/UI/Button";
+import InputError from "@/Components/Form/InputError";
+import InputField from "@/Components/Form/Input";
+import InputLabel from "@/Components/Form/Label";
+import DashboardNotification from "@/Components/Notification/DashboardNotification";
+import ButtonLink from "@/Components/UI/ButtonLink";
 
 export default {
     name: "CreateClient",
