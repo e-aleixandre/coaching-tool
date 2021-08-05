@@ -1,5 +1,6 @@
 <template>
     <div>
+        <toast-notification :type="$page.props.flash.type" :message="$page.props.flash.message"/>
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
@@ -17,6 +18,9 @@
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <breeze-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Mi Panel
+                                </breeze-nav-link>
+                                <breeze-nav-link :href="route('dashboard')" :active="$page.component.startsWith('Client')">
+                                    Clientes
                                 </breeze-nav-link>
                             </div>
                         </div>
@@ -103,6 +107,7 @@
     import BreezeDropdownLink from '@/Components/DropdownLink'
     import BreezeNavLink from '@/Components/NavLink'
     import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink'
+    import ToastNotification from "@/Components/ToastNotification";
 
     export default {
         components: {
@@ -111,6 +116,7 @@
             BreezeDropdownLink,
             BreezeNavLink,
             BreezeResponsiveNavLink,
+            ToastNotification
         },
 
         data() {

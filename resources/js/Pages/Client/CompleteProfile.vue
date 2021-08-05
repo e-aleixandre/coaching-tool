@@ -3,7 +3,7 @@
         <small class="text-gray-600">Rellena tus datos para crear tu ficha de cliente</small>
         <!-- TODO: Decide between displaying form errors together or below each field -->
         <!--<validation-errors class="mb-4"/>-->
-        <form novalidate class="mt-4 w-full max-w-lg" @submit.prevent="submit">
+        <form class="mt-4 w-full max-w-lg" @submit.prevent="submit">
 
             <div class="flex flex-wrap -mx-3 mb-6">
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">

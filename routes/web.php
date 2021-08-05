@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\ClientTokenController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,5 +30,7 @@ Route::get('/tokens/generate-token', [ClientTokenController::class, 'new'])->mid
 Route::post('/tokens/generate-token', [ClientTokenController::class, 'create'])->middleware('auth')->name('client_token.generate');
 Route::get('/tokens/{clientToken}', [ClientTokenController::class, 'index'])->name('client_token.complete_profile');
 Route::post('/tokens/{clientToken:token}', [ClientTokenController::class, 'completeProfile'])->name('client_token.complete_profile');
+Route::get('/clients/create', [ClientController::class, 'create'])->middleware('auth')->name('client.create');
+Route::post('/clients', [ClientController::class, 'store'])->middleware('auth')->name('client.store');
 
 require __DIR__.'/auth.php';

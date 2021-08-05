@@ -4,8 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
+/**
+ * Defining properties to avoid "calling magic method" warnings
+ *
+ * @property String $email
+ * @property String $first_name
+ * @property String $last_name
+ * @property String $phone
+ * @property Object $birthdate
+ * @property Boolean $isCreated
+ */
 class Client extends Model
 {
     use HasFactory;

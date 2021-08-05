@@ -58,7 +58,7 @@ class ClientTokenController extends Controller
                 'email' => ['required', 'email', 'exists:clients']
             ],
             [
-                'exists' => 'No existe un cliente con ese email.'
+                'email.exists' => 'No existe un cliente con ese email.'
             ]);
 
         // If there's no client with that email, or the email is wrong or not filled
@@ -76,7 +76,7 @@ class ClientTokenController extends Controller
             return Redirect::back()->withErrors($validator);
         }
 
-        // If we get here then we can create the token and show it
+        // TODO: If we get here then we can create the token and show it
         dd($client);
         /*
         $client = Client::where('email', $validator->["email"])->first();

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Client;
 use App\Models\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class ClientController extends Controller
 {
@@ -21,22 +23,34 @@ class ClientController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function create()
     {
-        //
+        return Inertia::render('Client/CreateClient');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+           'email' => ['required', 'email', 'unique:clients,email']
+        ], ['email.unique' => 'Ya existe un cliente con ese email.']);
+
+        // Mass assignment not set for email, so I have to create it manually instead of using Client::create($validated)
+        $client = new Client();
+        $client->email = $validated['email'];
+        $client->save();
+
+        return Redirect::back()->with([
+            'type' => 'success',
+            'message' => 'El cliente ha sido creado correctamente.'
+        ]);
     }
 
     /**
