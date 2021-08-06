@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Object $token
  * @property Object $birthdate
  * @property Boolean $isCreated
+ * @property Object $notes
  */
 class Client extends Model
 {
@@ -33,6 +34,14 @@ class Client extends Model
     public function token()
     {
         return $this->hasOne(ClientToken::class);
+    }
+
+    /**
+     * Notes
+     */
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
     }
 
     /**

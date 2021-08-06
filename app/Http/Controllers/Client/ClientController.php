@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Models\Client;
 use App\Http\Controllers\Controller;
+use App\Models\Note;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -60,11 +61,16 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * TODO: I don't know how to grab notes automatically with model binding without it affecting the other routes,
+     *  so I don't use model binding here
+     *
+     * @param  int $client
      * @return \Inertia\Response
      */
-    public function show(Client $client)
+    public function show(int $client)
     {
+        $client = Client::with('notes')->findOrFail($client);
+
         return Inertia::render('Client/ShowClient', [
             'client' => $client
         ]);

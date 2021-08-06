@@ -21,6 +21,12 @@ class DatabaseSeeder extends Seeder
         $user->password = Hash::make("password");
         $user->save();
 
-        \App\Models\Client::factory(10)->create();
+        \App\Models\Client::factory(10)->create()
+            ->each(function ($client) {
+                if ($client->isCreated)
+                {
+                    \App\Models\Note::factory(2)->create(['client_id' => $client->id]);
+                }
+            });
     }
 }

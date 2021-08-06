@@ -38,4 +38,8 @@ Route::get('/clients/{client}', [ClientController::class, 'show'])->middleware('
 Route::put('/clients/{client}', [ClientController::class, 'update'])->middleware('auth')->name('clients.update');
 Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->middleware('auth')->name('clients.destroy');
 
+/**
+ * Client note routes
+ */
+
 require __DIR__.'/auth.php';
