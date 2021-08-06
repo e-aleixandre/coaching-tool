@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property String $first_name
  * @property String $last_name
  * @property String $phone
+ * @property Object $token
  * @property Object $birthdate
  * @property Boolean $isCreated
  */

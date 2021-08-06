@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Mail\ClientTokenGenerated;
 use App\Models\Client;
 use App\Models\ClientToken;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
@@ -77,7 +79,11 @@ class ClientTokenController extends Controller
         }
 
         // TODO: If we get here then we can create the token and show it
-        dd($client);
+        $client->token()->firstOrCreate();
+
+        Mail::to($client)->send(new ClientTokenGenerated($client));
+
+        return "Mensaje enviado?";
         /*
         $client = Client::where('email', $validator->["email"])->first();
 
