@@ -35,6 +35,14 @@ class Client extends Model
         return $this->hasOne(ClientToken::class);
     }
 
+    /**
+     * Attribute accessor for full name printing
+     */
+    public function getFullNameAttribute()
+    {
+        return "$this->first_name $this->last_name";
+    }
+
     public function generateClientToken()
     {
         /**

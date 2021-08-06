@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ClientTokenGenerated extends Mailable
+class ClientProfileCompleted extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -33,10 +33,12 @@ class ClientTokenGenerated extends Mailable
      */
     public function build()
     {
-        return $this->from('info@mariaasensi.com')
-                    ->markdown('emails.clients.tokens.generated')
+        return $this->to('info@mariaasensi.com')
+                    ->from('info@mariaasensi.com')
+                    ->replyTo($this->client->email)
+                    ->markdown('emails.clients.profile-completed')
                     ->with([
-                        'token' => $this->client->token
+                        'client' => $this->client
                     ]);
     }
 }

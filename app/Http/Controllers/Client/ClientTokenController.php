@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Mail\ClientProfileCompleted;
 use App\Mail\ClientTokenGenerated;
 use App\Models\Client;
 use App\Models\ClientToken;
@@ -118,6 +119,10 @@ class ClientTokenController extends Controller
         $clientToken->delete();
 
         // TODO: Email the admin to notify a client has filled its profile
+
+        Mail::send(new ClientProfileCompleted($client));
+
+        return "Email enviado";
 
         return Inertia::render('Client/ProfileCompleted');
     }
