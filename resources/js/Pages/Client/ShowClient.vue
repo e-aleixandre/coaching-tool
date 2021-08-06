@@ -4,6 +4,10 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Perfil de cliente
             </h2>
+            {{ route }}
+            <inertia-link href="#" class="text-xs italic ml-2">
+                &#8810; Ir al listado de clientes
+            </inertia-link>
         </template>
 
         <div class="py-12">
