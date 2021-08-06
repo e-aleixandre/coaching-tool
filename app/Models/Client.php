@@ -21,6 +21,11 @@ class Client extends Model
 
     protected $fillable = ['first_name', 'last_name', 'phone', 'birthdate'];
 
+    protected $casts = [
+        'birthdate' => 'date:d-m-Y',
+        'isCreated' => 'boolean'
+    ];
+
     /**
      * Emailed token to allow profile completion by user
      */

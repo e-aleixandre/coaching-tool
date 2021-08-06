@@ -7,7 +7,7 @@
         {{ status }}
     </div>
 
-    <form @submit.prevent="submit">
+    <form v-if="!emailSent" @submit.prevent="submit">
         <div>
             <breeze-label for="email" value="Email" />
             <breeze-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
@@ -20,6 +20,9 @@
             </breeze-button>
         </div>
     </form>
+    <div class="flex items-center justify-end mt-4" v-else>
+        <button-link :href="route('dashboard')">Volver al inicio</button-link>
+    </div>
 </template>
 
 <script>
@@ -29,11 +32,13 @@
     import BreezeLabel from '@/Components/Form/Label'
     import BreezeValidationErrors from '@/Components/Form/ValidationErrors'
     import InputError from "@/Components/Form/InputError";
+    import ButtonLink from "@/Components/UI/ButtonLink";
 
     export default {
         layout: BreezeGuestLayout,
 
         components: {
+            ButtonLink,
             InputError,
             BreezeButton,
             BreezeInput,
@@ -50,13 +55,19 @@
             return {
                 form: this.$inertia.form({
                     email: ''
-                })
+                }),
+                emailSent: false,
             }
         },
 
         methods: {
             submit() {
-                this.form.post(this.route('password.email'))
+                this.form.post(this.route('password.email'), {
+                    onSuccess: () => {
+                        this.form.reset('email');
+                        this.emailSent = true;
+                    },
+                })
             }
         }
     }
