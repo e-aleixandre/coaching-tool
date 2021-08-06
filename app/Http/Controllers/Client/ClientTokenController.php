@@ -122,8 +122,6 @@ class ClientTokenController extends Controller
 
         Mail::send(new ClientProfileCompleted($client));
 
-        return "Email enviado";
-
         return Inertia::render('Client/ProfileCompleted');
     }
 }
