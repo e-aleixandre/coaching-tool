@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Perfil de cliente
             </h2>
-            <inertia-link href="#" class="text-xs italic ml-2">
+            <inertia-link :href="route('clients.index')" class="text-xs italic ml-2">
                 &#8810; Ir al listado de clientes
             </inertia-link>
         </template>
@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Fecha de nacimiento</div>
-                                        <div class="px-4 py-2">{{ client.birthdate }}</div>
+                                        <div class="px-4 py-2">{{ birthdate }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Teléfono</div>
@@ -93,6 +93,16 @@ export default {
 
     props: {
         client: Object
+    },
+
+    computed: {
+        birthdate() {
+            return new Date(this.client.birthdate).toLocaleDateString('es-ES', {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric"
+            });
+        }
     }
 }
 </script>

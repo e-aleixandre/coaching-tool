@@ -24,7 +24,8 @@ class Client extends Model
     protected $fillable = ['first_name', 'last_name', 'phone', 'birthdate'];
 
     protected $casts = [
-        'birthdate' => 'date:d-m-Y',
+        // Date type inputs actually handle the date better as a string than as a Date object
+        //'birthdate' => 'date',
         'isCreated' => 'boolean'
     ];
 

@@ -5,7 +5,24 @@
                 Lista de clientes
             </h2>
         </template>
-
+        <modal v-if="deleteModal.show" @close="deleteModal.show = false">
+            <template #icon>
+                <trash-icon class="w-16 h-16 text-red-500 mx-auto"/>
+            </template>
+            <template #title>
+                ¿Quieres borrar el cliente?
+            </template>
+            <template #content>
+                Una vez borrado no será posible recuperar la información. El cliente, su ficha y sus notas serán
+                borrados permanentemente.
+            </template>
+            <template #actions>
+                <my-button class="bg-red-500 hover:bg-red-600" :disabled="deleteModal.processing"
+                           @click="deleteClient(deleteModal.clientId)">
+                    Borrar
+                </my-button>
+            </template>
+        </modal>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -25,55 +42,37 @@
                                 </tr>
                                 </thead>
                                 <tbody class="text-gray-600 text-sm font-light">
-                                <tr v-for="(client, index) in clients" :key="client.id"
-                                    :class="{'bg-gray-50': index % 2}"
-                                    class="border-b border-gray-200 hover:bg-gray-100">
-                                    <!-- Email -->
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">{{ client.email }}</td>
-                                    <!-- Actions -->
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <!-- Action: view -->
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <inertia-link :href="route('clients.show', client.id)">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                         viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                              stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                              stroke-width="2"
-                                                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                                                    </svg>
-                                                </inertia-link>
+                                <transition-group name="fade">
+                                    <tr v-for="(client, index) in clients" :key="client.id"
+                                        :class="{'bg-gray-50': index % 2}"
+                                        class="border-b border-gray-200 hover:bg-gray-100">
+                                        <!-- Email -->
+
+                                        <td class="py-3 px-6 text-left whitespace-nowrap">{{ client.email }}</td>
+                                        <!-- Actions -->
+                                        <td class="py-3 px-6 text-center">
+                                            <div class="flex item-center justify-center">
+                                                <!-- Action: view -->
+                                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                                    <inertia-link :href="route('clients.show', client.id)">
+                                                        <eye-icon/>
+                                                    </inertia-link>
+                                                </div>
+                                                <!-- Action: edit -->
+                                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                                    <inertia-link :href="route('clients.edit', client.id)">
+                                                        <pencil-icon/>
+                                                    </inertia-link>
+                                                </div>
+                                                <!-- Action: delete -->
+                                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                                    <trash-icon @click="showDeleteModal(client.id)"/>
+                                                </div>
                                             </div>
-                                            <!-- Action: edit -->
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <inertia-link :href="route('clients.edit', client.id)">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                         viewBox="0 0 24 24"
-                                                         stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                              stroke-width="2"
-                                                              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                                                    </svg>
-                                                </inertia-link>
-                                            </div>
-                                            <!-- Action: delete -->
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <inertia-link as="button" method="delete"
-                                                              :href="route('clients.destroy', client.id)">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                         viewBox="0 0 24 24"
-                                                         stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                              stroke-width="2"
-                                                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                                    </svg>
-                                                </inertia-link>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+
+                                    </tr>
+                                </transition-group>
                                 </tbody>
                             </table>
                         </template>
@@ -88,17 +87,66 @@
 
 import AuthenticatedLayout from "@/Layouts/Authenticated";
 import DashboardNotification from "@/Components/Notification/DashboardNotification";
+import EyeIcon from "@/Components/Icon/EyeIcon";
+import PencilIcon from "@/Components/Icon/PencilIcon";
+import TrashIcon from "@/Components/Icon/TrashIcon";
+import Modal from "@/Components/Notification/Modal";
+import MyButton from "@/Components/UI/MyButton";
+import {Inertia} from "@inertiajs/inertia";
 
 export default {
     name: "ListClients",
 
     components: {
+        MyButton,
+        Modal,
+        TrashIcon,
+        PencilIcon,
+        EyeIcon,
         DashboardNotification,
         AuthenticatedLayout
     },
 
     props: {
         clients: Object
+    },
+
+    data() {
+        return {
+            deleteModal: {
+                show: false,
+                processing: false,
+                clientId: null
+            }
+        }
+    },
+
+    methods: {
+
+        showDeleteModal(clientId) {
+            this.deleteModal.clientId = clientId;
+            this.deleteModal.show = true;
+        },
+
+        deleteClient(clientId) {
+            Inertia.delete(this.route('clients.destroy', clientId), {
+                onStart: () => {
+
+                },
+                onFinish: () => {
+                    this.deleteModal.show = false;
+                    this.deleteModal.processing = false;
+                }
+            });
+        }
     }
 }
 </script>
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0
+}
+</style>

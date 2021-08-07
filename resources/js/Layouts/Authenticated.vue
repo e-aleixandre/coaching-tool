@@ -1,6 +1,6 @@
 <template>
     <div>
-        <toast-notification :type="$page.props.flash.type" :message="$page.props.flash.message"/>
+        <!-- <toast-notification :type="$page.props.flash.type" :message="$page.props.flash.message"/> -->
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->

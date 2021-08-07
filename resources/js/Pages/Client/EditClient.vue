@@ -95,6 +95,8 @@ export default {
         this.form.first_name = this.client.first_name;
         this.form.last_name = this.client.last_name;
         this.form.birthdate = this.client.birthdate;
+        //const birthdate = new Date(this.client.birthdate).toLocaleDateString();
+        //this.form.birthdate = `${birthdate.getFullYear()}-${birthdate.getMonth() + 1}-${birthdate.getDay() + 1}`;
         this.form.phone = this.client.phone;
     },
 

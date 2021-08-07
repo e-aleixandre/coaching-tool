@@ -61,18 +61,13 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      *
-     * TODO: I don't know how to grab notes automatically with model binding without it affecting the other routes,
-     *  so I don't use model binding here
-     *
-     * @param  int $client
+     * @param  Client $client
      * @return \Inertia\Response
      */
-    public function show(int $client)
+    public function show(Client $client)
     {
-        $client = Client::with('notes')->findOrFail($client);
-
         return Inertia::render('Client/ShowClient', [
-            'client' => $client
+            'client' => $client->load('notes')  // Loading notes before returning the client
         ]);
     }
 
@@ -126,11 +121,17 @@ class ClientController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function destroy(Client $client)
     {
         // TODO: Implement softDelete?
-        return "Deleted client " . $client->email;
+        $client->delete();
+
+        // TODO: Not actually using type and message, but useful for Toast system
+        return Redirect::back()->with([
+            'type' => 'success',
+            'message' => 'Cliente borrado satisfactoriamente.'
+        ]);
     }
 }

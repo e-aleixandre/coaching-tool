@@ -5,20 +5,6 @@
                 Mi Panel
             </h2>
         </template>
-        <modal :cancel="true">
-            <template #icon>s</template>
-            <template #title>
-                ¿Seguro?
-            </template>
-            <template #content>
-                Si borras el usuario no hay vuelta atrás saes nano
-            </template>
-            <template #actions>
-                <button-link href="">
-                    Borrar
-                </button-link>
-            </template>
-        </modal>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -34,20 +20,14 @@
 </template>
 
 <script>
-    import AuthenticatedLayout from '@/Layouts/Authenticated'
-    import DashboardNotification from "@/Components/Notification/DashboardNotification";
-    import Modal from '@/Components/Notification/Modal';
-    import ButtonLink from "@/Components/UI/ButtonLink";
-    import MyButton from "@/Components/UI/MyButton";
+import AuthenticatedLayout from '@/Layouts/Authenticated'
+import DashboardNotification from "@/Components/Notification/DashboardNotification";
 
-    export default {
+export default {
 
-        components: {
-            ButtonLink,
-            MyButton,
-            Modal,
-            DashboardNotification,
-            AuthenticatedLayout,
-        }
+    components: {
+        DashboardNotification,
+        AuthenticatedLayout,
     }
+}
 </script>
