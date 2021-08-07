@@ -72,7 +72,7 @@ import AuthenticatedLayout from "@/Layouts/Authenticated";
 import FormInput from "@/Components/Form/Input";
 import InputLabel from "@/Components/Form/Label";
 import InputError from "@/Components/Form/InputError";
-import FormButton from "@/Components/UI/Button";
+import FormButton from "@/Components/UI/MyButton";
 
 export default {
     name: "EditClients",

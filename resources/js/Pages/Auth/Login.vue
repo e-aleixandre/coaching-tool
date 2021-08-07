@@ -36,7 +36,7 @@
 </template>
 
 <script>
-    import BreezeButton from '@/Components/UI/Button'
+    import BreezeButton from '@/Components/UI/MyButton'
     import BreezeGuestLayout from "@/Layouts/Guest"
     import BreezeInput from '@/Components/Form/Input'
     import BreezeCheckbox from '@/Components/Form/Checkbox'

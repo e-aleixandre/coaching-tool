@@ -58,7 +58,7 @@
 import GuestLayout from "@/Layouts/Guest";
 import BreezeInput from "@/Components/Form/Input";
 import InputLabel from "@/Components/Form/Label";
-import BreezeButton from "@/Components/UI/Button";
+import BreezeButton from "@/Components/UI/MyButton";
 import InputError from "@/Components/Form/InputError";
 
 export default {

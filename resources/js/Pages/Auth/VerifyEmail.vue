@@ -19,7 +19,7 @@
 </template>
 
 <script>
-    import BreezeButton from '@/Components/UI/Button'
+    import BreezeButton from '@/Components/UI/MyButton'
     import BreezeGuestLayout from "@/Layouts/Guest"
 
     export default {

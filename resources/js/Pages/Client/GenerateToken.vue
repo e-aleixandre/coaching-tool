@@ -36,7 +36,7 @@
 
 <script>
 import AuthenticatedLayout from "@/Layouts/Authenticated";
-import FormButton from "@/Components/UI/Button";
+import FormButton from "@/Components/UI/MyButton";
 import InputError from "@/Components/Form/InputError";
 import InputField from "@/Components/Form/Input";
 import InputLabel from "@/Components/Form/Label";
