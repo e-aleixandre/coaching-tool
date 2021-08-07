@@ -19299,6 +19299,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Form_InputError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Form/InputError */ "./resources/js/Components/Form/InputError.vue");
 /* harmony import */ var _Components_Form_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Form/Input */ "./resources/js/Components/Form/Input.vue");
 /* harmony import */ var _Components_Form_Label__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Form/Label */ "./resources/js/Components/Form/Label.vue");
+/* harmony import */ var _Components_Notification_DashboardNotification__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Notification/DashboardNotification */ "./resources/js/Components/Notification/DashboardNotification.vue");
+
 
 
 
@@ -19314,7 +19316,8 @@ __webpack_require__.r(__webpack_exports__);
     InputError: _Components_Form_InputError__WEBPACK_IMPORTED_MODULE_2__.default,
     FormButton: _Components_UI_MyButton__WEBPACK_IMPORTED_MODULE_1__.default,
     InputField: _Components_Form_Input__WEBPACK_IMPORTED_MODULE_3__.default,
-    InputLabel: _Components_Form_Label__WEBPACK_IMPORTED_MODULE_4__.default
+    InputLabel: _Components_Form_Label__WEBPACK_IMPORTED_MODULE_4__.default,
+    DashboardNotification: _Components_Notification_DashboardNotification__WEBPACK_IMPORTED_MODULE_5__.default
   },
   data: function data() {
     return {
@@ -20329,7 +20332,7 @@ var _hoisted_2 = {
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
-    "class": [[$data.bgClass, $data.borderClass], "mb-6 border-l-4 text-white-700 p-4"]
+    "class": [[$data.bgClass, $data.borderClass], "border-l-4 text-white-700 p-4"]
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.title), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true)])], 2
@@ -22160,6 +22163,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [!$data.clientCreated ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         key: 0
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_dashboard_notification, {
+        "class": "mb-4",
         type: "info"
       }, {
         "default": _withId(function () {
@@ -22222,6 +22226,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         key: 1
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_dashboard_notification, {
+        "class": "mb-4",
         type: "success"
       }, {
         "default": _withId(function () {
@@ -22532,16 +22537,7 @@ var _hoisted_5 = {
   "class": "p-6 bg-white border-b border-gray-200"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "mb-6 bg-blue-100 border-l-4 border-blue-500 text-white-700 p-4",
-  role: "alert"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
-  "class": "font-bold"
-}, "Información"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
-  "class": "text-sm"
-}, "Desde esta página puedes generar un email para que el cliente rellene su ficha.")], -1
-/* HOISTED */
-);
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Desde esta página puedes generar un email para que el cliente rellene su ficha. ");
 
 var _hoisted_7 = {
   "class": "mb-4"
@@ -22558,6 +22554,8 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_dashboard_notification = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("dashboard-notification");
+
   var _component_input_label = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("input-label");
 
   var _component_input_field = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("input-field");
@@ -22573,7 +22571,17 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       return [_hoisted_1];
     }),
     "default": _withId(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_dashboard_notification, {
+        "class": "mb-4",
+        type: "info"
+      }, {
+        "default": _withId(function () {
+          return [_hoisted_6];
+        }),
+        _: 1
+        /* STABLE */
+
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", {
         "class": "w-full md:w-5/12",
         onSubmit: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
           return $options.submit && $options.submit.apply($options, arguments);
@@ -23049,6 +23057,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         key: 0
       }, [!$props.client.isCreated ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_dashboard_notification, {
         key: 0,
+        "class": "my-6",
         type: "warning"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {

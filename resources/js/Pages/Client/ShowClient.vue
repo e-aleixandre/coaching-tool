@@ -18,11 +18,10 @@
                             Perfil de {{ client.email }}
                         </div>
                         <template v-if="!client.isCreated">
-                            <dashboard-notification type="warning" v-if="!client.isCreated">
+                            <dashboard-notification class="my-6" type="warning" v-if="!client.isCreated">
                                 El usuario no tiene una ficha creada. No hay información para mostrar.
                             </dashboard-notification>
                             <div class="flex justify-between w-full md:w-8/12">
-
                                 <button-link href="/">Completar perfil</button-link>
                                 <button-link href="/">Enviarle un email</button-link>
                             </div>

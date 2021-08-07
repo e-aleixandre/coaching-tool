@@ -1,5 +1,5 @@
 <template>
-    <div :class="[ bgClass, borderClass ]" class="mb-6 border-l-4 text-white-700 p-4">
+    <div :class="[ bgClass, borderClass ]" class="border-l-4 text-white-700 p-4">
         <p class="font-bold">{{ title }}</p>
         <p class="text-sm">
             <slot />

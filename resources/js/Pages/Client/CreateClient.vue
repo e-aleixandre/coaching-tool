@@ -12,7 +12,7 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <template v-if="!clientCreated">
-                            <dashboard-notification type="info">
+                            <dashboard-notification class="mb-4" type="info">
                                 Desde esta página puedes crear un nuevo cliente. Más adelante podrás
                                 decidir si rellenar su ficha o enviarle un email para que lo haga él.
                             </dashboard-notification>
@@ -33,7 +33,7 @@
                         </template>
 
                         <template v-else>
-                            <dashboard-notification type="success">
+                            <dashboard-notification class="mb-4" type="success">
                                 Cliente creado correctamente. Ahora puedes completar su perfil o hacerle
                                 llegar un email para que lo complete por su cuenta. ¿Qué quieres hacer?
                             </dashboard-notification>

@@ -10,11 +10,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <div class="mb-6 bg-blue-100 border-l-4 border-blue-500 text-white-700 p-4" role="alert">
-                        <p class="font-bold">Información</p>
-                        <p class="text-sm">Desde esta página puedes generar un email para que el cliente rellene su ficha.</p>
-                    </div>
-
+                    <dashboard-notification class="mb-4" type="info">
+                        Desde esta página puedes generar un email para que el cliente rellene su ficha.
+                    </dashboard-notification>
                     <form class="w-full md:w-5/12" @submit.prevent="submit">
                         <div class="mb-4">
                             <input-label for="email">Email del cliente</input-label>
@@ -40,6 +38,7 @@ import FormButton from "@/Components/UI/MyButton";
 import InputError from "@/Components/Form/InputError";
 import InputField from "@/Components/Form/Input";
 import InputLabel from "@/Components/Form/Label";
+import DashboardNotification from "@/Components/Notification/DashboardNotification";
 
 export default {
     name: "CreateTokenForm",
@@ -54,7 +53,8 @@ export default {
         InputError,
         FormButton,
         InputField,
-        InputLabel
+        InputLabel,
+        DashboardNotification
     },
 
     data() {
