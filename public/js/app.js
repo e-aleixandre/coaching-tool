@@ -19826,7 +19826,7 @@ var _hoisted_1 = {
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
-  "stroke-width": "2",
+  "stroke-width": "4",
   d: "M19 9l-7 7-7-7"
 }, null, -1
 /* HOISTED */
@@ -23677,7 +23677,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-7197618f], .fade-leave-active[data-v-7197618f] {\n    transition: opacity .5s\n}\n.fade-enter[data-v-7197618f], .fade-leave-to[data-v-7197618f] /* .fade-leave-active below version 2.1.8 */ {\n    opacity: 0\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-7197618f], .fade-leave-active[data-v-7197618f] {\r\n    transition: opacity .5s\n}\n.fade-enter[data-v-7197618f], .fade-leave-to[data-v-7197618f] /* .fade-leave-active below version 2.1.8 */ {\r\n    opacity: 0\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
