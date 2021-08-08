@@ -10,10 +10,10 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^4.0.3",
         "@inertiajs/inertia": "^0.9.0",
         "@inertiajs/inertia-vue3": "^0.4.0",
         "@inertiajs/progress": "^0.2.4",
-        "@fullhuman/postcss-purgecss": "^4.0.3",
         "@tailwindcss/forms": "^0.2.1",
         "@vue/compiler-sfc": "^3.0.5",
         "autoprefixer": "^10.2.4",
@@ -27,7 +27,12 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
+        "@tiptap/extension-bullet-list": "^2.0.0-beta.15",
         "@tiptap/extension-italic": "^2.0.0-beta.15",
+        "@tiptap/extension-list-item": "^2.0.0-beta.14",
+        "@tiptap/extension-task-item": "^2.0.0-beta.17",
+        "@tiptap/extension-task-list": "^2.0.0-beta.17",
+        "@tiptap/extension-text-align": "^2.0.0-beta.22",
         "@tiptap/extension-underline": "^2.0.0-beta.16",
         "@tiptap/starter-kit": "^2.0.0-beta.89",
         "@tiptap/vue-3": "^2.0.0-beta.48"

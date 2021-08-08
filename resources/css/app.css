@@ -1,3 +1,37 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/**
+Notes styling
+ */
+
+.note hr {
+    border-top-width: 2px !important;
+    @apply mt-4 mb-4;
+}
+
+.note ul {
+    @apply ml-5 list-disc;
+}
+
+.note ol {
+    @apply ml-5 list-decimal;
+}
+
+.note ul[data-type="taskList"] {
+    @apply ml-0 list-none !important;
+}
+
+.note ul[data-type="taskList"] input[type="checkbox"] {
+    @apply mr-2 !important;
+    @apply rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+}
+
+.note ul[data-type="taskList"] > li {
+    @apply flex !important;
+}
+
+.note ul[data-type="taskList"] > li[data-checked="true"] {
+    @apply line-through;
+}

@@ -55,7 +55,7 @@
                                 </icon-link>
                             </div>
                             <div v-if="client.notes" class="flex flex-wrap">
-                                <client-profile-note v-for="note in client.notes" :key="note.id" :note="note"/>
+                                <client-profile-note v-for="note in client.notes" :key="note.id" :note="note" />
                             </div>
                         </template>
                     </div>

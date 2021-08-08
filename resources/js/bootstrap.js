@@ -26,18 +26,3 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/**
- *
- */
-window.Models = {
-    Client(first_name, last_name, email, isCreated, token, birthdate, phone) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.email = email;
-        this.isCreated = isCreated;
-        this.token = token;
-        this.birthdate = birthdate;
-        this.phone = phone;
-    }
-}

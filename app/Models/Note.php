@@ -9,6 +9,8 @@ class Note extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'content'];
+
     /**
      * Add attributes automatically when retrieving the model
      */

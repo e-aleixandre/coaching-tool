@@ -42,6 +42,7 @@ Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->middle
 /**
  * Client note routes
  */
-Route::get('/note', [NoteController::class, 'edit'])->middleware('auth')->name('notes.edit');
+Route::get('/notes/{note}/edit', [NoteController::class, 'edit'])->middleware('auth')->name('notes.edit');
+Route::put('/notes/{note}', [NoteController::class, 'update'])->middleware('auth')->name('notes.update');
 
 require __DIR__.'/auth.php';
