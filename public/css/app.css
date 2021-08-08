@@ -32185,6 +32185,23 @@ Notes styling
   text-decoration: line-through;
 }
 
+.ProseMirror:focus {
+  outline: none;
+}
+
+.editor-buttons .is-active {
+  --tw-bg-opacity: 1;
+  background-color: rgba(219, 234, 254, var(--tw-bg-opacity));
+  fill: currentColor;
+  --tw-text-opacity: 1;
+  color: rgba(59, 130, 246, var(--tw-text-opacity));
+}
+
+.note-editor .ProseMirror[contenteditable="false"] {
+  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

@@ -1,6 +1,6 @@
 <template>
     <div class="note w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-        <inertia-link :href="route('notes.edit', note.id)"
+        <inertia-link :href="route('notes.edit', [note.client_id, note.id])"
            class="bg-yellow-200 block shadow-md hover:shadow-xl rounded-lg overflow-hidden">
             <div class="p-4">
                 <span

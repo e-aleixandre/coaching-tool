@@ -1,5 +1,5 @@
 <template>
-    <svg viewBox="0 0 320 80" width="320" height="80" xmlns="http://www.w3.org/2000/svg">
+    <!--<svg viewBox="0 0 320 80" width="320" height="80" xmlns="http://www.w3.org/2000/svg">
         <path id="ruta1"
               fill="black" stroke="black" stroke-width="1"
               d="M 2.30,62.00
@@ -164,5 +164,5 @@
              311.64,62.00 311.64,25.00 311.64,25.00
              311.64,25.00 305.84,25.00 305.84,25.00
              305.84,25.00 305.84,62.00 305.84,62.00 Z" />
-    </svg>
+    </svg>-->
 </template>

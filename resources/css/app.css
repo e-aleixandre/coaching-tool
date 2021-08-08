@@ -35,3 +35,17 @@ Notes styling
 .note ul[data-type="taskList"] > li[data-checked="true"] {
     @apply line-through;
 }
+
+.ProseMirror:focus {
+    outline: none;
+}
+
+.editor-buttons .is-active {
+    @apply bg-blue-100;
+    @apply fill-current;
+    @apply text-blue-500;
+}
+
+.note-editor .ProseMirror[contenteditable="false"] {
+    @apply animate-pulse;
+}

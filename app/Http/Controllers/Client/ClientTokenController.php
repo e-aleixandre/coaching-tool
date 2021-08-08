@@ -118,8 +118,6 @@ class ClientTokenController extends Controller
         $client->update($validated);
         $clientToken->delete();
 
-        // TODO: Email the admin to notify a client has filled its profile
-
         Mail::send(new ClientProfileCompleted($client));
 
         return Inertia::render('Client/ProfileCompleted');

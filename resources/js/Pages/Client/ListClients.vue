@@ -45,28 +45,29 @@
                                 <transition-group name="fade">
                                     <tr v-for="(client, index) in clients" :key="client.id"
                                         :class="{'bg-gray-50': index % 2}"
-                                        class="border-b border-gray-200 hover:bg-gray-100">
+                                        @click="$inertia.get(route('clients.show', client.id))"
+                                        class="border-b border-gray-200 hover:bg-gray-100 cursor-pointer">
                                         <!-- Email -->
 
                                         <td class="py-3 px-6 text-left whitespace-nowrap">{{ client.email }}</td>
                                         <!-- Actions -->
                                         <td class="py-3 px-6 text-center">
                                             <div class="flex item-center justify-center">
-                                                <!-- Action: view -->
+                                                <!-- Action: view
                                                 <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                                                     <inertia-link :href="route('clients.show', client.id)">
                                                         <eye-icon/>
                                                     </inertia-link>
-                                                </div>
+                                                </div>-->
                                                 <!-- Action: edit -->
                                                 <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                    <inertia-link :href="route('clients.edit', client.id)">
+                                                    <inertia-link @click.stop :href="route('clients.edit', client.id)">
                                                         <pencil-icon/>
                                                     </inertia-link>
                                                 </div>
                                                 <!-- Action: delete -->
                                                 <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
-                                                    <trash-icon @click="showDeleteModal(client.id)"/>
+                                                    <trash-icon @click.stop="showDeleteModal(client.id)"/>
                                                 </div>
                                             </div>
                                         </td>

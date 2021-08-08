@@ -4,20 +4,6 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Editar nota
             </h2>
-            <button :disabled="note.saving || note.saved"
-                    class="text-xs disabled:opacity-50 italic ml-2 flex bg-blue-100 hover:bg-blue-300 p-2 rounded-lg"
-                    @click="saveChanges">
-                <save-icon class="w-4 h-4 mr-2"/>
-                <template v-if="note.saved">
-                    Todos los cambios guardados
-                </template>
-                <template v-else-if="note.saving">
-                    Guardando...
-                </template>
-                <template v-else>
-                    Guardar cambios
-                </template>
-            </button>
         </template>
 
         <div v-if="editor" class="py-12">
@@ -78,6 +64,21 @@
                             <editor-button @click="editor.chain().focus().setHorizontalRule().run()">
                                 <horizontal-rule-icon/>
                             </editor-button>
+                            <button :disabled="note.saving || note.saved"
+                                    :class="[ !note.saving && !note.saved ? 'hover:bg-blue-300' : 'cursor-default']"
+                                    class="text-xs disabled:opacity-50 italic ml-2 flex items-center bg-blue-100 p-2 rounded-lg"
+                                    @click="saveChanges">
+                                <save-icon class="w-4 h-4 mr-2"/>
+                                <template v-if="note.saved">
+                                    Todos los cambios guardados
+                                </template>
+                                <template v-else-if="note.saving">
+                                    Guardando...
+                                </template>
+                                <template v-else>
+                                    Guardar cambios
+                                </template>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -186,7 +187,7 @@ export default {
     methods: {
 
         saveChanges() {
-            Inertia.put(this.route('notes.update', this._note.id),
+            Inertia.put(this.route('notes.update', [this._note.client_id, this._note.id]),
                 {
                     title: this.note.title,
                     content: this.note.content
@@ -196,16 +197,15 @@ export default {
                         this.note.saving = true;
                         this.setEditable(false);
                     },
-                    onFinish: (visit) => {
+                    onSuccess: () => {
+                        this.note.saved = true;
+                    },
+                    onFinish: () => {
                         this.note.saving = false;
                         this.setEditable(true);
-                        console.log(visit);
-                    },
-                    onSuccess: page => {
-                        console.log(page);
                     },
                     onError: errors => {
-                        console.log(errors);
+                        alert("Error al guardar. Puede que pierdas los cambios.");
                     }
                 });
         },
@@ -221,13 +221,5 @@ export default {
 }
 </script>
 <style scoped>
-.editor-buttons .is-active {
-    @apply bg-blue-100;
-    @apply fill-current;
-    @apply text-blue-500;
-}
 
-.note-editor .ProseMirror[contenteditable="false"] {
-    @apply animate-pulse;
-}
 </style>
