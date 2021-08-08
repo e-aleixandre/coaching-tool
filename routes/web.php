@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\ClientTokenController;
+use App\Http\Controllers\Note\NoteController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -41,5 +42,6 @@ Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->middle
 /**
  * Client note routes
  */
+Route::get('/note', [NoteController::class, 'edit'])->middleware('auth')->name('notes.edit');
 
 require __DIR__.'/auth.php';
